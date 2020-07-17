@@ -30,7 +30,7 @@ library(rtweet)
 
 
 
-load("C:\\Users\\koenig\\Documents\\R\\twittertoken.RDa")
+load("----")
 
     # -> Twittertoken, enthält Zugriffsdaten für die APIs
 
