@@ -1,8 +1,8 @@
 ########################################################
-## Workshop: Einführung in Social Media Analyse mit R ##
+## Workshop: EinfÃ¼hrung in Social Media Analyse mit R ##
 ########################################################
 
-setwd("C:\\Users\\koenig\\Documents\\R\\Workshop Einführung Social Media FG12")
+setwd("----")
 
 library(tidyr)
 
@@ -16,23 +16,23 @@ library(tidyr)
 
 library(rtweet)
 
-  # benötigt Zugriff auf die Twitter APIs, welcher (mittlerweile) von Twitter geprüft und ggf. gewährt wird
+  # benÃ¶tigt Zugriff auf die Twitter APIs, welcher (mittlerweile) von Twitter geprÃ¼ft und ggf. gewÃ¤hrt wird
 
-    #   * Anfrage für API-Zugriff kann auf developer.twitter.com (benötigt Twitter Account) gestellt werden
+    #   * Anfrage fÃ¼r API-Zugriff kann auf developer.twitter.com (benÃ¶tigt Twitter Account) gestellt werden
 
-    #   * Bei korrekt und vollständig ausgefüllten Formularen zum Verwendungszweck bisher (relativ) 
+    #   * Bei korrekt und vollstÃ¤ndig ausgefÃ¼llten Formularen zum Verwendungszweck bisher (relativ) 
     #       problemloser Zugriff
 
-    #   * Facebook hat den API Zugriff für Forschungszwecke mittlerweile eingestellt, 
+    #   * Facebook hat den API Zugriff fÃ¼r Forschungszwecke mittlerweile eingestellt, 
     #       auch im Zusammenhang mit Cambridge Analytica
 
-    #   * Plattformen wie Youtube besitzen ebenfalls APIs mit Möglichkeiten zum Scrapen
+    #   * Plattformen wie Youtube besitzen ebenfalls APIs mit MÃ¶glichkeiten zum Scrapen
 
 
 
 load("C:\\Users\\koenig\\Documents\\R\\twittertoken.RDa")
 
-    # -> Twittertoken, enthält Zugriffsdaten für die APIs
+    # -> Twittertoken, enthÃ¤lt Zugriffsdaten fÃ¼r die APIs
 
 
 
@@ -41,7 +41,7 @@ load("C:\\Users\\koenig\\Documents\\R\\twittertoken.RDa")
     #     - STREAM API (schneidet live alle Tweets zu z.B. einem Hashtag mit, funktionier wie die 
     #           Timeline auf Twitter)
 
-    #         * geeignet, um via Server über längere Zeiträume Twitter Konversationen mitzuschneiden
+    #         * geeignet, um via Server Ã¼ber lÃ¤ngere ZeitrÃ¤ume Twitter Konversationen mitzuschneiden
 
     #         * greift maximal 1% des globalen Twitter-Aufkommens ab
 
@@ -62,8 +62,8 @@ load("C:\\Users\\koenig\\Documents\\R\\twittertoken.RDa")
     #             -> Tweetsuche zeitkritisch, da Tweets nur auf ~7-10 Tage alte Tweets zugegriffen werden kann 
     #                 und Ratelimits (18.000 Tweets pro call bzw. alle 15 Minuten) bestehen
           
-    #             -> für größere Themen über Zeit idR sinnvoll, mehrere Suchen täglich über Tage/Wochen 
-    #                 durchzuführen, um Ratelimits zu umgehen und Tweets für den gesamten Beobachtungszeitraum 
+    #             -> fÃ¼r grÃ¶ÃŸere Themen Ã¼ber Zeit idR sinnvoll, mehrere Suchen tÃ¤glich Ã¼ber Tage/Wochen 
+    #                 durchzufÃ¼hren, um Ratelimits zu umgehen und Tweets fÃ¼r den gesamten Beobachtungszeitraum 
     #                 abzugreifen
           
   
@@ -72,23 +72,23 @@ load("C:\\Users\\koenig\\Documents\\R\\twittertoken.RDa")
           
     #     => beide APIs mit unbekanntem Bias, da Twitter die Ergebnisse anhand unbekannter Variablen filtert
           
-    #         * auch bei identischen Suchtermen unterschiedliche Ergebnisse für Stream und Search
+    #         * auch bei identischen Suchtermen unterschiedliche Ergebnisse fÃ¼r Stream und Search
           
     #         * sowohl Stream als auch Search liefern einige Tweets, die die jeweils andere API nicht liefert
           
     #         * unterm Strich scheint die Stream API einige Tweets mehr abzugreifen, bietet jedoch schlechtere 
-    #               Datenqualität und weniger Flexibilität (Retweets/Likes nicht verwendbar, bei Retweets 
+    #               DatenqualitÃ¤t und weniger FlexibilitÃ¤t (Retweets/Likes nicht verwendbar, bei Retweets 
     #               original Text nicht enthalten, nur live Stream...)
     
           
           
-    #     - FIREHOSE API (nicht ohne weiteres verfügbar)
+    #     - FIREHOSE API (nicht ohne weiteres verfÃ¼gbar)
           
     #         * greift GESAMTEN globalen Tweetstream ab, d.i. alle Tweets zu einem Zeitpunkt
           
-    #         * beste Datenqualität, Zugriff ist jedoch beschränkt
+    #         * beste DatenqualitÃ¤t, Zugriff ist jedoch beschrÃ¤nkt
           
-    #         * Zugriff idR. nur von einigen wenigen Firmen, Daten müssen gekauft werden
+    #         * Zugriff idR. nur von einigen wenigen Firmen, Daten mÃ¼ssen gekauft werden
           
     #         * extrem ressourcenintensiv
     
@@ -96,7 +96,7 @@ load("C:\\Users\\koenig\\Documents\\R\\twittertoken.RDa")
 
     #   Twitterdaten werden von rtweet als R-Dataframe gespeichert 
           
-    #     d.i. eine Art von Tabelle, in der für jede Beobachtung (jeden Tweet) eine Reihe von Variablen 
+    #     d.i. eine Art von Tabelle, in der fÃ¼r jede Beobachtung (jeden Tweet) eine Reihe von Variablen 
     #       (Text, User ID...) gespeichert wird (Reihen = Tweets, Spalten = Variablen)
 
           
@@ -133,7 +133,7 @@ load("C:\\Users\\koenig\\Documents\\R\\twittertoken.RDa")
 
 
   
-    # IDs der Follower nachschlagen für mehr Informationen
+    # IDs der Follower nachschlagen fÃ¼r mehr Informationen
 
   weizenbaum_followers <- lookup_users(weizenbaum_followers$user_id, token = twitter_token)
 
@@ -208,7 +208,7 @@ twitter_data <- fg12_tweets
 
   load("C:\\Users\\koenig\\Documents\\R\\#metwo\\metwo_tweets_final.RDa")
   
-    # Twitter Daten zu #metwo. Über ca 4 Wochen unter dem Hashtag #metwo gesampled
+    # Twitter Daten zu #metwo. Ãœber ca 4 Wochen unter dem Hashtag #metwo gesampled
 
 
   metwo_hashtags <- table(tolower(unlist(metwo_tweets$hashtags)))
@@ -278,33 +278,33 @@ twitter_data <- fg12_tweets
       #         - Temporale features (Userverhalten im Zeitverlauf, d.i. etwa Tweetaufkommen, 
       #             Tag/Nacht-Rhythmus etc.)
       #
-      #         - Inhalt / Sprache (Länge und Sinnhaftigkeit von Tweets)
+      #         - Inhalt / Sprache (LÃ¤nge und Sinnhaftigkeit von Tweets)
       #
-      #         - Sentiment (Emtionoalität von Tweets)
+      #         - Sentiment (EmtionoalitÃ¤t von Tweets)
       
-      #   * Score nicht determinstisch, sondern Einschätzung bot-artigen Verhaltens 
+      #   * Score nicht determinstisch, sondern EinschÃ¤tzung bot-artigen Verhaltens 
       #       - nicht alle Accounts mit Score > 0.5 sind Bots!
       
-      #   * nur für englischsprachige Tweets optimiert, d.i. Inhalts- und Sentimentanalysen für 
+      #   * nur fÃ¼r englischsprachige Tweets optimiert, d.i. Inhalts- und Sentimentanalysen fÃ¼r 
       #       z.B. deutsche Tweets nicht verwendbar
       
       #   * genaue Berechungen des Botometers nicht offen gelegt
       
-      #   * da Botometer recht zeitaufwändig und benötigter Zugriff auf Twitter API Ratelimits mitsichbringt, 
-      #        in der Praxis häufig nur aktive User (z.B. mind. 1 Tweet/Tag) überprüft
+      #   * da Botometer recht zeitaufwÃ¤ndig und benÃ¶tigter Zugriff auf Twitter API Ratelimits mitsichbringt, 
+      #        in der Praxis hÃ¤ufig nur aktive User (z.B. mind. 1 Tweet/Tag) Ã¼berprÃ¼ft
       #       (wen interessieren schon Bots, die nicht aktiv sind? -  gerade in themenbezogenen Samples)
       
-      #   * Zugriff auf Botscores zeitkritisch, da potentielle Botprofile von Twitter oder den Usern gelöscht 
-      #       werden können und so nicht mehr via Botometer überprüfbar sind
+      #   * Zugriff auf Botscores zeitkritisch, da potentielle Botprofile von Twitter oder den Usern gelÃ¶scht 
+      #       werden kÃ¶nnen und so nicht mehr via Botometer Ã¼berprÃ¼fbar sind
       
       
       
       # Funktion zum Call der Botometer API 
       
       #   -> relevante Informationen wie Username, Timeline und Mentions werden von der Twitter API bezogen,
-      #         via html an die Botometer API weitergeleitet und deren Ergebnisse in R eingefügt
+      #         via html an die Botometer API weitergeleitet und deren Ergebnisse in R eingefÃ¼gt
       
-      #   benötigt Twittertoken (API Zugriff) und Mashape (API Plattform, mit u.a. Botometer) Key 
+      #   benÃ¶tigt Twittertoken (API Zugriff) und Mashape (API Plattform, mit u.a. Botometer) Key 
       
   load("C:\\Users\\koenig\\Documents\\R\\MashapeKey.RDa")
 
@@ -359,7 +359,7 @@ twitter_data <- fg12_tweets
   botscores[,1:18] <- lapply(botscores[,1:18],as.numeric)      
   
   View(botscores)
-      # => "universal" score sprachunabhänig (geeignet für z.B. deutsche Tweets/User)
+      # => "universal" score sprachunabhÃ¤nig (geeignet fÃ¼r z.B. deutsche Tweets/User)
     
   
   ggplot(data = botscores, aes(x = user.name, y = scores.universal))  +
@@ -384,12 +384,12 @@ twitter_data <- fg12_tweets
   DensityBotscoreGraph
   
   
-  # Tweetaktivität von (vermeintlichen) Bots und nicht-Bots
+  # TweetaktivitÃ¤t von (vermeintlichen) Bots und nicht-Bots
   
   active_bots <- metwo_botscores
   active_bots$bot <- NA
   
-    # Errors (Account gelöscht etc.) als "deleted" setzen, botscore dort auf -1
+    # Errors (Account gelÃ¶scht etc.) als "deleted" setzen, botscore dort auf -1
   active_bots$bot[!is.na(active_bots$error)] <- "account deleted"
   active_bots$scores.universal[is.na(active_bots$scores.universal)] <- -1
   
@@ -447,7 +447,7 @@ twitter_data <- fg12_tweets
   library(rgexf)
   
   
-    # Mentions-Graph: wer erwähnt / retweetet / quoted / replied wen?
+    # Mentions-Graph: wer erwÃ¤hnt / retweetet / quoted / replied wen?
   
   metwo_sample %>%
     gt_edges(screen_name, mentions_screen_name) %>%
@@ -467,14 +467,14 @@ twitter_data <- fg12_tweets
   nodes_df <- data.frame(ID = c(1:vcount(mentions_graph)), NAME = V(mentions_graph)$name)
   
   
-    # Attribute-Dataframe (extra Informationen) für Nodes
+    # Attribute-Dataframe (extra Informationen) fÃ¼r Nodes
   
   nodes_att <- data.frame(n = V(mentions_graph)$n)
   
       # * n = Vorkommnisse eines Nodes (Knotens) im Sample
   
   
-    # Bot-Klassifikation als Attribut hinzufügen
+    # Bot-Klassifikation als Attribut hinzufÃ¼gen
   
   nodes_att$user.screen_name <- V(mentions_graph)$name
   
@@ -489,7 +489,7 @@ twitter_data <- fg12_tweets
   edges_df <- as.data.frame(get.edges(mentions_graph, c(1:ecount(mentions_graph))))
   
   
-    # Attribute-Dataframe (extra Informationen) für Edges
+    # Attribute-Dataframe (extra Informationen) fÃ¼r Edges
   
   edges_att <- data.frame(n = E(mentions_graph)$n)
   
@@ -524,9 +524,9 @@ twitter_data <- fg12_tweets
   # Structural Topic Modelling  
   
   #   * Methode des Machine Learning, basiert auf Korrelation von Dokumenten und 
-  #       (in Dokumenten enthaltenen) Wörtern mit einer Anzahl Topics; generativer Prozess
+  #       (in Dokumenten enthaltenen) WÃ¶rtern mit einer Anzahl Topics; generativer Prozess
   #
-  #   * Im Gegensatz zu andern Topic Modelling-Ansätzen erlaubt STM die Einbindung von Metadaten zur Beeinflussung
+  #   * Im Gegensatz zu andern Topic Modelling-AnsÃ¤tzen erlaubt STM die Einbindung von Metadaten zur Beeinflussung
   #       des Prozesses
   #
   #   * Hier: Hashtags und Zeitpunkt (Tag des Tweets) als Metadaten
@@ -543,7 +543,7 @@ twitter_data <- fg12_tweets
   text_noRT$word <- iconv(text_noRT$word, to="UTF-8")
   
   
-  # Entfernen von Stopwords (inhaltlich nicht-relevante Wörter wie der/die/das, aber, dass....)
+  # Entfernen von Stopwords (inhaltlich nicht-relevante WÃ¶rter wie der/die/das, aber, dass....)
   
   # generelle Stopwords aus library
   stopwords_de <- get_stopwords(language = "de")
@@ -561,19 +561,19 @@ twitter_data <- fg12_tweets
   
   # Stemmen und Lemmatizen
   
-  #   = Reduzieren der Wörter auf Wortstamm
+  #   = Reduzieren der WÃ¶rter auf Wortstamm
   
-  # Verwendung der TreeTagger Engine (Uni München) zum generieren der Wortstämme
+  # Verwendung der TreeTagger Engine (Uni MÃ¼nchen) zum generieren der WortstÃ¤mme
   # (http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
   
   
-  library(koRpus.lang.de)   # koRpus package für deutsch
+  library(koRpus.lang.de)   # koRpus package fÃ¼r deutsch
   
-  # Generieren des lemma-Dictionaries aus den Wörtern im Textkorpus
+  # Generieren des lemma-Dictionaries aus den WÃ¶rtern im Textkorpus
   dictionary_de <- make_lemma_dictionary(text_noRT$word, engine = "treetagger", lang="de")
   
   
-  # einige Tokens wurden doppelt generiert. Entfernen der unpassenden Interpretationen (Wortstämmen)
+  # einige Tokens wurden doppelt generiert. Entfernen der unpassenden Interpretationen (WortstÃ¤mmen)
   
   dictionary_de[duplicated(dictionary_de$token),]
   
@@ -587,7 +587,7 @@ twitter_data <- fg12_tweets
   dictionary_de <- subset(dictionary_de, token != "studierte" & lemma != "studieren")
   
   
-  # lemmatizen: Zuordnen  der Wortstämme zu den Worten
+  # lemmatizen: Zuordnen  der WortstÃ¤mme zu den Worten
   
   text_noRT$lemmatized <- lemmatize_words(text_noRT$word, dictionary = dictionary_de)
   
@@ -604,7 +604,7 @@ twitter_data <- fg12_tweets
   View(words)
   
   
-  # Wordcount pro document (tweet) - für Topic Modelling benötigt
+  # Wordcount pro document (tweet) - fÃ¼r Topic Modelling benÃ¶tigt
   
   word_count <- count(text_noRT, status_id, screen_name, lemmatized, sort = TRUE)
   
@@ -624,10 +624,10 @@ twitter_data <- fg12_tweets
   
   # Metadaten einlesen
   
-  # Subset: Tweets ohne Retweets & nur deutsche Tweets (Dokumente (Tweets) müssen konsistent bleiben)
+  # Subset: Tweets ohne Retweets & nur deutsche Tweets (Dokumente (Tweets) mÃ¼ssen konsistent bleiben)
   noRT <- subset(metwo_tweets, is_retweet==F & lang == "de") 
   
-  # Dokumente (Tweets) entfernen, die bei Entfernung der Stopwords gelöscht wurden (kurze Antworten etc.)
+  # Dokumente (Tweets) entfernen, die bei Entfernung der Stopwords gelÃ¶scht wurden (kurze Antworten etc.)
   noRT <- noRT[noRT$status_id %in% word_count$status_id,]
   
   # Metadaten aus Subset extrahieren
@@ -637,7 +637,7 @@ twitter_data <- fg12_tweets
   metadata$hashtags <- vapply(metadata$hashtags, paste, collapse = " ", character(1L))
   metadata$hashtags <- tolower(metadata$hashtags)
   
-  #  #metwo Hashtag (definieren das Sample) und NA Einträge sowie Kommas entfernen 
+  #  #metwo Hashtag (definieren das Sample) und NA EintrÃ¤ge sowie Kommas entfernen 
   metadata$hashtags <- str_remove_all(metadata$hashtags, "metwo")
   metadata$hashtags <- str_remove_all(metadata$hashtags, "na")
   metadata$hashtags <- str_remove_all(metadata$hashtags, ",")
@@ -652,9 +652,9 @@ twitter_data <- fg12_tweets
   metadata$day <-  difftime(metadata$created_at, startdate, units = "days") %>% as.integer()
   
   
-  # Metadaten mit Corpus kombinieren und präparieren
+  # Metadaten mit Corpus kombinieren und prÃ¤parieren
   
-  # überprüfen, welche Auswirkungen die lower threshhold (Mindestanzahl an Dokumenten, in denen ein Wort vorkommen
+  # Ã¼berprÃ¼fen, welche Auswirkungen die lower threshhold (Mindestanzahl an Dokumenten, in denen ein Wort vorkommen
   #   muss) hat: wieivele Dokumente / Worte  werden entfernt? 
   plotRemoved(stm_data$documents, lower.thresh = seq(1, 50, by=10))  # check words removed for threshold 
   
@@ -673,8 +673,8 @@ twitter_data <- fg12_tweets
   plot(Ks)
   plot(Ks$results$K,Ks$results$exclus)
   
-  # * Können helfen, Anzahl Topics festzulegen. 
-  #     Sind jedoch nur Hilfsmittel und sagen nichts über inhaltliche Schlüssigkeit aus!
+  # * KÃ¶nnen helfen, Anzahl Topics festzulegen. 
+  #     Sind jedoch nur Hilfsmittel und sagen nichts Ã¼ber inhaltliche SchlÃ¼ssigkeit aus!
   
   
   # Modelle
@@ -730,7 +730,7 @@ twitter_data <- fg12_tweets
   stm_topics_20
   
   
-  # Für Topics einschlägigste Dokumente (Tweets)
+  # FÃ¼r Topics einschlÃ¤gigste Dokumente (Tweets)
   
   # Tweetdaten sortieren und anpassen (bei prepDocuments entfernte Dokumente ebenfalls entfernen, 
   #   gleiche Reihenfolge)
@@ -742,7 +742,7 @@ twitter_data <- fg12_tweets
   findThoughts(stm20, texts = corpus_data$text, topics = c(1:20), n = 5)
   
   
-  # Sortierung der Wörter eines Topics nach verschiedenen Scores
+  # Sortierung der WÃ¶rter eines Topics nach verschiedenen Scores
   
   labelTopics(stm10)
   
